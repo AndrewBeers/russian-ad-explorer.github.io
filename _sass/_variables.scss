@@ -1,0 +1,51 @@
+
+//
+// VARIABLES
+//
+
+// Sizes
+$maxWidth: 790px;
+$minWidth: 260px;
+$weightHeight: 50px;
+$buttonHeight: 220px;
+
+// Margins
+$topMargin: 40px;
+$bottomMargin: 40px;
+
+// Colors
+$link: #0080C0;
+$blue: #4183C4;
+$black: #000000;
+$darkerGray: #222;
+$darkGray: #333;
+$gray: #666;
+$lightGray: #eee;
+$white: #E0E0E0;
+
+// Font stacks
+// $helvetica: "Trebuchet MS", Helvetica, Arial, sans-serif;
+// $georgia: Georgia, serif;
+// Temporary Replacement font stacks taken from Distill Pub
+$helvetica: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+$georgia: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+
+// Mobile breakpoints
+
+@mixin tiny-mobile {
+  @media screen and (max-width: 300px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 400px) {
+    @content;
+  }
+}
+
+@mixin smallview {
+  @media screen and (max-width: 570px) {
+    @content;
+  }
+}
