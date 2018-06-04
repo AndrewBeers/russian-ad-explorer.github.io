@@ -97,14 +97,15 @@ function getContentByIndex(page_id, key){
     $("#primary-details").children().children('#' + ad_values[i]).text(data_point);
   }
 
-  changePrimaryImage('{{ site.baseurl }}/resources/projects/2018-05-09-russian-ads/loading_spinner.gif')
+  changePrimaryImage('{{ site.baseurl }}/loading_spinner.gif')
   $("#primary-image").children('img').attr('style', 'width: inherit')
   image_id = $("#primary-details").children().children('#ad_id').text();
-  image_source = 'https://github.com/AndrewBeers/anderff-site/raw/master/resources/projects/2018-05-09-russian-ads/data/' + needle[0].image_filepath
+  image_source = 'https://github.com/russian-ad-explorer/russian-ad-datasets/raw/master/images/' + needle[0].image_filepath
   PreloadImage(image_source, image_id, changePrimaryImage)
 
-  $("#download").children().attr("href", ('https://github.com/AndrewBeers/anderff-site/raw/master/resources/projects/2018-05-09-russian-ads/data/' + needle[0].pdf_filepath));
+  $("#download").children().attr("href", ('https://github.com/russian-ad-explorer/russian-ad-pdfs/raw/master/pdfs/' + needle[0].pdf_filepath));
 
+  console.log('https://twitter.com/intent/tweet?text=' + encodeURI('"' + needle[0]['ad_copy'].substring(0, 100) + '..." An ad bought by the Russian Internet Research Assocation on Facebook and Instagram.') + '&url=' + encodeURI(window.location.href))
   $("#twitter-button").attr('href', 'https://twitter.com/intent/tweet?text=' + encodeURI('"' + needle[0]['ad_copy'].substring(0, 100) + '..." An ad bought by the Russian Internet Research Assocation on Facebook and Instagram.') + '&url=' + encodeURI(window.location.href));
 
   $("#facebook-button").attr('href', 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURI(window.location.href) + '&title=' + encodeURI('The Russian Ad Explorer'));
@@ -112,7 +113,7 @@ function getContentByIndex(page_id, key){
   $('meta[property="og:image"]').remove();
   $('meta[property="og:description"]').remove();
   $('meta[property="og:url"]').remove();
-  $("head").append('<meta property="og:image" content="' + 'https://github.com/AndrewBeers/anderff-site/raw/master/resources/projects/2018-05-09-russian-ads/data/' + needle[0].image_filepath + '">');
+  $("head").append('<meta property="og:image" content="' + 'https://github.com/russian-ad-explorer/russian-ad-datasets/raw/master/images/' + needle[0].image_filepath + '">');
   $("head").append('<meta property="og:description" content="' + needle[0]['ad_copy'].substring(0, 100) + '...">');
   $("head").append('<meta property="og:url" content="' + window.location.href + '">');
 

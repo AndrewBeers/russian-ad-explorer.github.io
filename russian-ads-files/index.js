@@ -135,7 +135,7 @@ $(document).ready(function(){
   FJS.addCriteria({field: 'month', ele: '#month-criteria input:checkbox'});
   FJS.addCriteria({field: 'placement_categories', ele: '#placement-criteria input:checkbox'});
   FJS.addCriteria({field: 'language_categories', ele: '#language-criteria input:checkbox'});
-  FJS.addCriteria({field: 'interests_categories', ele: '#interest-criteria input:checkbox'});
+  FJS.addCriteria({field: 'interests_categories_regex', ele: '#interest-criteria input:checkbox', type: 'like'});
 
   /*
    * Add multiple criterial.
