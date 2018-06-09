@@ -27,6 +27,11 @@ input:checkbox {
   display: none !important;
 }
 
+.card-header a {
+  text-decoration: none;
+  color: white;
+}
+
 #primary-content{
 /*    padding: 0px;
     width: 100%;
@@ -70,7 +75,8 @@ input:checkbox {
 .accordion .card-header:after {
     font-family: 'FontAwesome';  
     content: "\f068";
-    float: right; 
+    float: right;
+    text-align: center; 
 }
 .accordion .card-header.collapsed:after {
     /* symbol for "collapsed" panels */
@@ -352,6 +358,10 @@ legend {
 .jumbotron {
   padding-top: 10px;
   border-radius: 0px !important;
+}
+
+.jumbotron p {
+  font-size: 17px;
 }
 
 .title-container {

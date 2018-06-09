@@ -105,7 +105,8 @@ function getContentByIndex(page_id, key){
 
   $("#download").children().attr("href", ('https://github.com/russian-ad-explorer/russian-ad-pdfs/raw/master/pdfs/' + needle[0].pdf_filepath));
 
-  console.log('https://twitter.com/intent/tweet?text=' + encodeURI('"' + needle[0]['ad_copy'].substring(0, 100) + '..." An ad bought by the Russian Internet Research Assocation on Facebook and Instagram.') + '&url=' + encodeURI(window.location.href))
+  // console.log('https://twitter.com/intent/tweet?text=' + encodeURI('"' + needle[0]['ad_copy'].substring(0, 100) + '..." An ad bought by the Russian Internet Research Assocation on Facebook and Instagram.') + '&url=' + encodeURI(window.location.href))
+
   $("#twitter-button").attr('href', 'https://twitter.com/intent/tweet?text=' + encodeURI('"' + needle[0]['ad_copy'].substring(0, 100) + '..." An ad bought by the Russian Internet Research Assocation on Facebook and Instagram.') + '&url=' + encodeURI(window.location.href));
 
   $("#facebook-button").attr('href', 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURI(window.location.href) + '&title=' + encodeURI('The Russian Ad Explorer'));
