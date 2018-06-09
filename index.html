@@ -11,6 +11,10 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
 <!DOCTYPE html>
 <!-- saved from url=(0033)http://jiren.github.io/filter.js/ -->
 <html lang="en"><head>
+
+  <title>The Russian Ad Explorer</title>
+  <meta name="description" content="Explore ads purchased by the Internet Research Agency (IRA) on Facebook and Instagram for American audiences. Download the original ads as released by the United States Congress.">
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120217269-1"></script>
   <script>
@@ -20,8 +24,9 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
 
     gtag('config', 'UA-120217269-1');
   </script>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+  <!-- Meta Info -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8" />
   <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -30,6 +35,7 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
   <meta name="robots" content="index,follow" />
   <meta name="googlebot" content="noodp">
 
+  <!-- Script Links -->
   <link href="{{ site.baseurl }}/russian-ads-files/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
   <!-- <link href="{{ site.baseurl }}/russian-ads-files/bootstrap-4.min.css" media="screen" rel="stylesheet" type="text/css"> -->
   <link href="{{ site.baseurl }}/russian-ads-files/jquery-ui-1.10.2.custom.min.css" media="screen" rel="stylesheet" type="text/css">
@@ -47,6 +53,7 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href="{{ site.baseurl }}/russian-ads-files/stream.css" media="screen" rel="stylesheet" type="text/css">
 
+  <!-- Social Meta Info -->
   <meta name="twitter:card" content="The Russian Ad Explorer" />
   <meta name="twitter:creator" content="@beeeeeers" />
   <meta property="og:url" content="{{ page.url }}" />
@@ -60,7 +67,7 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
 
 
   <div class="container-fluid title-container">
-    <div class="jumbotron">
+    <div class="jumbotron" style="margin-bottom: 10px">
       <h1>The Russian Ad Explorer</h1> 
       <p>Explore ads purchased by the Internet Research Agency (IRA) on Facebook and Instagram for American audiences. Learn more about the project and download the dataset that powers this explorer <a href="{{ site.baseurl }}/about">here</a>.
         <br /><br />
@@ -127,9 +134,9 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
     </div>
   </div> -->
 
-  <div class="container-fluid" style="margin-top: 20px; margin-bottom: 20px; height: 85px">
+  <div class="container-fluid" style="margin-top: 20px; margin-bottom: 40px; height: 85px">
     <div class="searchbar col-md-12">
-      <legend>Search</legend>
+      <legend style="font-size: 32px">Browse Ads</legend>
       <label class="sr-only" for="searchbox">Search</label>
       <input type="text" class="form-control" id="searchbox" style="font-size: 24px; height: 36px" placeholder="Search Ad Text … (e.g. 'refugee', 'police', 'bernie', 'LGBT', 'gun')">
     </div>

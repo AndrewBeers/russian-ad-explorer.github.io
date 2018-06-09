@@ -9,8 +9,8 @@ $(document).ready(function(){
 
   var page_id = parseFloat(getParameterByName('ad_id'));
   if (typeof page_id === 'undefined' || ! page_id) {
-    page_id = 500
-    history.replaceState('', 'Russian Ad Explorer', '?ad_id=2647')
+    page_id = 3311
+    history.replaceState('', 'Russian Ad Explorer', '?ad_id=3311')
   }
 
   getContentByIndex(page_id, 'date_order_index')
