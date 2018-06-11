@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0033)http://jiren.github.io/filter.js/ -->
 <html lang="en"><head>
 
   <title>The Russian Ad Explorer</title>
@@ -33,7 +32,7 @@
   <script src="/russian-ads-files/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
   <script src="/russian-ads-files/russian_ads.js" type="text/javascript"></script>
   <script src="/russian-ads-files/functions.js" type="text/javascript"></script>
-  <script src="/russian-ads-files/filter.min.js" type="text/javascript"></script>
+  <script src="/russian-ads-files/filter_modified.min.js" type="text/javascript"></script>
   <script src="/russian-ads-files/index.js" type="text/javascript"></script>
   <!-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> -->
   <!-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> -->
@@ -90,9 +89,9 @@
         <strong>Ad Creation Date:</strong> <span id="ad_creation_date"></span><br />
         <strong>Ad End Date:</strong> <span id="ad_end_date"></span><br />
         <strong>Ad Text:</strong> <span id="ad_copy"></span><br />
-        <strong>Ad Impressions:</strong> <span id="ad_impressions"></span><br />
-        <strong>Ad Clicks:</strong> <span id="ad_clicks"></span><br />
-        <strong>Ad Cost:</strong> $<span id="ad_spend_usd"></span> (<span id="ad_spend_rub"></span> RUB)<br />
+        <strong>Ad Cost:</strong> <span id="ad_spend_usd"></span> (<span id="ad_spend_rub"></span> RUB)<br />
+        <strong>Ad Impressions:</strong> <span id="ad_impressions"></span> (<span id="efficiency_impressions"></span> Impressions / $)<br />
+        <strong>Ad Clicks:</strong> <span id="ad_clicks"></span> (<span id="efficiency_impressions"></span> Clicks / $, <span id="conversion_rate"></span> Clicks / Impression)<br />
         <strong>Ad Landing Page:</strong> <span id="ad_landing_page"></span><br />
         <strong>Ad Location:</strong> <span id="ad_targeting_location"></span><br />
         <strong>Ad Placements:</strong> <span id="placements"></span><br />
@@ -174,7 +173,7 @@
                   <input type="radio" class="sort-button" value="ad_impressions" /> Impressions
                 </label>
                 <label class="btn btn-default sort-btn">
-                  <input type="radio" class="sort-button" value="ad_spend_usd" /> Cost (RUB)
+                  <input type="radio" class="sort-button" value="ad_spend_usd" /> Cost
                 </label>
                 <label class="btn btn-default sort-btn">
                   <input type="radio" class="sort-button" value="efficiency_clicks" /> Cost Efficiency (Clicks)
@@ -472,10 +471,8 @@
 <script id="russian-ad-template" type="text/html">
   <div class="col-sm-4">
     <div class="thumbnail">
-      <span class="label label-success click"><span class='ad_clicks_label thumbnail-tag'><%= ad_clicks %> Clicks</span><span class='ad_spend_usd_label thumbnail-tag hidden'>$<%= ad_spend_usd %></span><span class=".ad_impressions_label thumbnail-tag hidden"><%= ad_impressions %> Impressions</span><span class="efficiency_clicks_label thumbnail-tag hidden"><%= efficiency_clicks %> Clicks / $</span><span class="efficiency_impressions_label thumbnail-tag hidden"><%= efficiency_impressions %> Impressions / $</span><span class="ad_impressions_label thumbnail-tag hidden"><%= ad_impressions %> Impressions</span><span class="conversion_rate_label thumbnail-tag hidden"><%= conversion_rate %> Clicks / Impression</span></span>
-
-      <div class="preview-image"><img src="https://github.com/russian-ad-explorer/russian-ad-datasets/raw/master/thumbnails/<%= image_filepath %>"" alt=""/></div>
-      <div class="caption">
+      <span class="label label-success click"><span class='ad_clicks_label thumbnail-tag'><span class="thumbnail-data"><%= ad_clicks %></span> Clicks</span><span class='ad_spend_usd_label thumbnail-tag hidden'><span class="thumbnail-usd"><%= ad_spend_usd %></span></span><span class=".ad_impressions_label thumbnail-tag hidden"><span class="thumbnail-data"><%= ad_impressions %></span> Impressions</span><span class="efficiency_clicks_label thumbnail-tag hidden"><span class="thumbnail-data"><%= efficiency_clicks %></span> Clicks / $</span><span class="efficiency_impressions_label thumbnail-tag hidden"><span class="thumbnail-data"><%= efficiency_impressions %></span> Impressions / $</span><span class="ad_impressions_label thumbnail-tag hidden"><span class="thumbnail-data"><%= ad_impressions %></span> Impressions</span><span class="conversion_rate_label thumbnail-tag hidden"><span class="thumbnail-data"><%= conversion_rate %></span> Clicks / Impression</span></span>
+      <div class="caption"><img src="https://github.com/russian-ad-explorer/russian-ad-datasets/raw/master/thumbnails/<%= image_filepath %>"" alt=""/>
         <h4><%= month %>/<%= day %>/<%= year %></h4>
         <div class="detail">
           <span class="image_filepath" style="display:none"><%= image_filepath %></span>

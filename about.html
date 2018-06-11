@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0033)http://jiren.github.io/filter.js/ -->
+
 <html lang="en"><head>
 
   <title>The Russian Ad Explorer | About</title>
@@ -68,7 +68,7 @@
         </a>
       </div>
       <div id="collapseBackground" class="card-body collapse panel-body show" data-parent="#accordion" >
-        <p>  On May 10, 2018, Democrats on the United States House Intelligence Committee <a href="https://democrats-intelligence.house.gov/facebook-ads/social-media-advertisements.htm">released</a> 2500+ ads created by the Internet Research Agency between 2015 and 2017. The Internet Research Agency is believed to have created these ads to influence the outcome of the 2016 United States presidential election, and in general influence Americans' political views. 
+        <p>  On May 10, 2018, Democrats on the United States House Intelligence Committee <a href="https://democrats-intelligence.house.gov/facebook-ads/social-media-advertisements.htm">released</a> 3500+ ads created by the Internet Research Agency between 2015 and 2017. The Internet Research Agency is believed to have created these ads to influence the outcome of the 2016 United States presidential election, and in general influence Americans' political views. 
           <br /><br />
           Many journalists and coders have already published visualizations and articles on this dataset &mdash; for a more in-depth analysis, you can read some of their work at these links: <a href="https://www.usatoday.com/story/news/2018/05/11/what-we-found-facebook-ads-russians-accused-election-meddling/602319002/">USA Today</a>, <a href="https://www.nytimes.com/interactive/2018/05/14/technology/facebook-ads-congress.html">NYTimes</a>, <a href="https://www.washingtonpost.com/news/the-switch/wp/2018/05/10/here-are-the-3400-facebook-ads-purchased-by-russias-online-trolls-during-the-2016-election/?utm_term=.bcf68aad1b78">Washington Post</a>, <a href="https://www.wired.com/story/house-democrats-release-3500-russia-linked-facebook-ads/">Wired</a>.
         </p>
@@ -132,11 +132,11 @@
       <div id="collapseInterests" class="collapse panel-body" data-parent="#accordion" >
         <div class="card-body">
           <p>
-          The Russian Ad Explorer allows you to filter by "Interest Categories", a set of criteria that was not provided in the original dataset. I created Interest Categories by aggregating the descriptors "People Who Match", "And Must Also Match", "Behaviors", "Interest Expansion", and "Interests" into a smaller set of categories that referenced a similar set of ideas. Scanning the dataset from the original PDFs extracted around 1,000 categories, and sorted them into a smaller set of 18 sub-categories.
+          The Russian Ad Explorer allows you to filter by "Interest Categories", a set of criteria that was not provided in the original dataset. I created Interest Categories by aggregating the descriptors "People Who Match", "And Must Also Match", "Behaviors", "Interest Expansion", and "Interests" into a smaller set of categories that referenced a similar set of ideas. Scanning the dataset from the original PDFs extracted around 1,000 categories, which I then sorted them into a smaller set of 18 sub-categories.
           <br /><br />
-           The decision to put an ad tag in one or multiple categories was entirely a judgment call, and you may disagree with some of the categorizations. I've tried to Additionally, I may have been unsure how to categorize certain interests and target audiences, and left them out. In order to make transparent some of the choices made in these categorizations, I briefly define them below. You can see a spreadsheet detailing the specific interest categories extracted and tags assigned on <a href="https://github.com/russian-ad-explorer/russian-ad-datasets">this Github repository</a>.
+           The decision to put an ad tag in one or multiple categories was entirely a judgment call, and you may disagree with some of the categorizations. Additionally, I may have been unsure how to categorize certain interests and target audiences, and left them out. In order to make transparent some of the choices made in these categorizations, I briefly define them below. You can see a spreadsheet detailing the specific interest categories extracted and tags assigned on <a href="https://github.com/russian-ad-explorer/russian-ad-datasets">this Github repository</a>.
           <br /><br />
-          <strong>Progressive:</strong> Interest tags were chosen if they referred to media programs associated with progressive viewpoints, progressive media outlets, and slogans and ideas associated with progressive views. Some examples include: "Social justice", "mother jones", and "Hillary Clinton". Notably, I tried to exclude figures and ideas from traditionally left-leaning categories like "African American", "LGBTQ", or "Islam", in order to make the Progressive category more specific, as opposed to a catch-all for several categories. For example, the interest "Mumia Abu-Jamal" rightfully is an "African-American" figure, a "Progressive" figure, and a figure associated with the "Incarcerated", I chose to categorize that interest as "African-American" as it seemed to reflect the intent of the IRA was designing that specific campaign. Despite these choices, the Progressive category in particular has heavy overlap with the African-American category anyway.
+          <strong>Progressive:</strong> Interest tags were chosen if they referred to media programs associated with progressive viewpoints, progressive media outlets, and slogans and ideas associated with progressive views. Some examples include: "Social justice", "mother jones", and "Hillary Clinton". Notably, I tried to exclude figures and ideas from traditionally left-leaning categories like "African American", "LGBTQ", or "Islam", in order to make the Progressive category more specific, as opposed to a catch-all for several categories. For example, although the interest "Mumia Abu-Jamal" rightfully is an "African-American" figure, a "Progressive" figure, and a figure associated with the "Incarcerated", I chose to categorize that interest as "African-American" as it seemed to reflect the intent of the IRA when designing that specific campaign. Despite these choices, the Progressive category in particular has heavy overlap with the African-American category anyway.
           <br/><br/>
           <strong>Conservative:</strong>
           Interest tags were chosen if they referred to popular conservative figures, organizations, or symbols. Some examples include "breitbart", "Rand Paul", and "Far-right politics". Like the "Progressive" category, traditionally conservative categories like "Anti-Immigration", "Southern / Confederate", and "Police" were not selected in this category to make it more specific.
@@ -215,7 +215,7 @@
         According to Facebook, impressions are a proxy for "how often your ads were on screen for your target audience." You can read more about impressions at <a href="https://www.facebook.com/business/help/675615482516035">Facebook</a>.
         <br /><br />
         <strong>Placements:</strong>
-        Where an ad will be placed. It is hard to tell what Facebook means by "Third Party Apps"; Facebook seems to have renamed this feature "Audience Network" -- you can read about it here: <a href="https://www.facebook.com/business/help/757929014342910?helpref=faq_content">Facebook</a>. There also seems to be more to "Video" placements than I can understand, as some of the ads in this category don't seem to be videos.
+        Where an ad will be placed. It is hard to tell what Facebook means by "Third Party Apps"; Facebook seems to have renamed this feature "Audience Network". You can read more about that here: <a href="https://www.facebook.com/business/help/757929014342910?helpref=faq_content">Facebook</a>. There also seems to be more to "Video" placements than I can understand, as some of the ads in this category don't seem to be videos.
         <br /><br />
         <strong>Cost Efficiency and Conversion Rate:</strong>
         Cost efficiency was determined by dividing the US dollar price of an ad by either its clicks or impressions. Click conversion rates were determined by dividing impressions by clicks, to see how many people who saw an ad actually clicked on an ad. In at least one ad, there are more clicks than impressions, leading one to believe that Facebook may double-count clicks by the same user.
@@ -224,7 +224,7 @@
         Although there are options for both English (UK) and English (US), they always appear together in these ads.
         <br /><br />
         <strong>Likes, Comments, and Shares:</strong>
-        The data released by Facebook does not contain information about how many times a post was liked, commented on, or shared. "Clicks" does not seem to be a proxy for any of these actions, as many pages with low clicks have much higher likes, comments, and shares. I do not yet know if these likes/comments are synthetic or pre-populated, and will update this section if I find any more information.
+        The data released by Facebook does not contain information about how many times a post was liked, commented on, or shared. "Clicks" does not seem to be a proxy for any of these actions, as many pages with low clicks have much higher likes, comments, and shares. I do not yet know if these likes/comments are synthetic or pre-populated, and will update this section if I receive any more information.
         <br /><br />
       </p>
       </div>

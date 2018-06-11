@@ -3,11 +3,32 @@
 
 // Static Variables
 
-var ad_values = ['ad_id', 'ad_copy','ad_landing_page', 'ad_targeting_location', 'age', 'language', 'placements', 'ad_impressions', 'ad_clicks', 'ad_spend_usd', 'ad_spend_rub', 'ad_creation_date', 'ad_end_date', 'interest_expansion', 'date_order_index'];
+var ad_values = ['ad_id', 'ad_copy','ad_landing_page', 'ad_targeting_location', 'age', 'language', 'placements', 'ad_impressions',  'ad_clicks', 'ad_spend_usd', 'ad_spend_rub', 'ad_creation_date', 'ad_end_date', 'interest_expansion', 'date_order_index', 'efficiency_impressions', 'efficiency_clicks', 'conversion_rate'];
+
 var sort_values = ['ad_creation_date', 'ad_clicks', 'ad_impressions', 'ad_spend_usd', 'efficiency_clicks', 'efficiency_impressions'];
+var number_values = ['ad_impressions', 'ad_clicks', 'efficiency_impressions', 'efficiency_clicks', 'conversion_rate'];
+
 var chosen_sort = 'ad_clicks';
 var ad_values_length = ad_values.length;
 
+var number_formatter = new Intl.NumberFormat('en-US', {
+  // the default value for minimumFractionDigits depends on the currency
+  // and is usually already 2
+});
+
+var rub_formatter = new Intl.NumberFormat('en-US', {
+  minimumFractionDigits: 2
+  // the default value for minimumFractionDigits depends on the currency
+  // and is usually already 2
+});
+
+var usd_formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 2,
+  // the default value for minimumFractionDigits depends on the currency
+  // and is usually already 2
+});
 
 // Static Functions
 
@@ -94,8 +115,25 @@ function getContentByIndex(page_id, key){
     if (data_point === null) {
       data_point = '[Unavailable]'
     }
+    if(number_values.includes(ad_values[i])){
+
+    $("#primary-details").children().children('#' + ad_values[i]).text(number_formatter.format(data_point));
+}
+    else if(ad_values[i] == 'ad_spend_usd') {
+    $("#primary-details").children().children('#' + ad_values[i]).text(usd_formatter.format(data_point));
+    }
+    else if(ad_values[i] == 'ad_spend_rub'){
+    $("#primary-details").children().children('#' + ad_values[i]).text(rub_formatter.format(data_point)); 
+    }
+    else {
     $("#primary-details").children().children('#' + ad_values[i]).text(data_point);
   }
+  }
+
+  // for(i = 0; i < number_values.length; i++) {
+  //   number_text = $("#primary-details").children().children('#' + number_values[i]).text();
+  //   $("#primary-details").children().children('#' + number_values[i]).text(usd_formatter.format(number_text));
+  // }
 
   changePrimaryImage('{{ site.baseurl }}/loading_spinner.gif')
   $("#primary-image").children('img').attr('style', 'width: inherit')
