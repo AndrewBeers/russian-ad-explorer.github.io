@@ -50,7 +50,7 @@
 
   <div class="row" style="margin-top: 20px; margin-bottom: 20px">
     <div class="col-sm-12">
-      <img class="center-block" src="russian_ad_screenshot.png" alt=""{{ site.baseurl }} style="max-height: 450px; width: auto"/>
+      <img class="center-block" src="russian_ad_screenshot.png" alt=""{{ site.baseurl }} style="max-height: 450px; width: auto; max-width: 100%"/>
     </div>
   </div>
   <div class="row" style="margin-top: 20px; margin-bottom: 40px">
@@ -106,9 +106,9 @@
           <br /><br />
           Ads that appealed to conservative viewers featured ideas more violent and authoritarian than conservatives were typically credited with holding. One ad for "Stop A.I.", a violently anti-immigrant Facebook page, featured a racist caricature of a Mexican immigrant on a bugs body, with the subtitle "It's time to get rid of parasites". Other ads used Confederate imagery, or equated Hillary with Satan and recruited for an "army of Jesus".
           <br /><br />
-          There are probably many other discoveries left to be made in this dataset. Sorting by cost efficiency shows that many of the most effective ads marketed pictures of attractive and/or nude women. Searching "bernie" shows that the IRA was purchasing pro-Bernie ads both before and after the nomination of Hillary Clinton in the Democratic Primary. Select the "Native American" category and see a brief campaign aimed towards Native Americans in the weeks after President Trump gave approval for the Dakota Access Pipeline.
+          There are probably many other discoveries left to be made in this dataset. Sorting by cost efficiency shows that many of the most effective ads marketed pictures of attractive and/or nude women. Searching "bernie" shows that the IRA was purchasing pro-Bernie ads both before and after the nomination of Hillary Clinton in the Democratic Primary. Select the "Native American" category and see a brief campaign aimed towards Native Americans in the weeks after President Trump gave approval for the Dakota Access Pipeline. Looking at the "Non-US" location category shows that many anti-immigration and anti-Muslim ads were also aimed at countries like England, Germany, France, and Canada.
 
-          I am sure there are many other ads to discover -- send a note (<a href="mailto:russian.ad.explorer@gmail.com">russian.ad.explorer@gmail.com</a>), or share an ad, if you find something interesting.
+          I am sure there are many other ads to discover &mdash; send a note (<a href="mailto:russian.ad.explorer@gmail.com">russian.ad.explorer@gmail.com</a>), or share an ad, if you find something interesting.
         </p>
         </div>
       </div>
@@ -202,6 +202,9 @@
         <p>
         Each PDF released by Congress came with a set of descriptors, but some ads had more descriptors than others. If an ad did not have a descriptor, or if it could not be transcribed during the PDF extraction process, its value is replaced with "[Unavailable]". Other edits and information on these descriptors are detailed below.
         <br/><br />
+        <strong>Targeting Location:</strong>
+        Some ads were specified to target a certain city, state, or country. Over 100 locations were named, and they were reduced to the "Midwest / West", "The South", "Pacific", "Northeast", "Southwest", "Atlantic", and "Non-US". As with the interest categories, there were some judgement calls &mdash; for example I categorized North Carolina as "The South", whereas some might think its closer to "Atlantic". There were also some cities with common names like "Glendale" that I did not assign to any category. A spreadsheet detailing location categories can be found on <a href="https://github.com/russian-ad-explorer/russian-ad-datasets">this Github repository</a>.
+        <br /><br />
         <strong>Ad Age:</strong>
         Targeted age groups for ad campaigns were fairly random, but usually broad. I created two extra "Interest Categories" from these age groups: "Below 30 Only" and "Age 30+ Only". Ads were put into these categories if their age ranges were entirely below 30 (e.g. 18-25), or entirely above (e.g. 30-65+).
         <br /><br />

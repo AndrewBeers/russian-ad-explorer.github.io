@@ -133,6 +133,7 @@ $(document).ready(function(){
   FJS.addCriteria({field: 'placement_categories', ele: '#placement-criteria input:checkbox'});
   FJS.addCriteria({field: 'language_categories', ele: '#language-criteria input:checkbox'});
   FJS.addCriteria({field: 'interests_categories_regex', ele: '#interest-criteria input:checkbox', type: 'like'});
+  FJS.addCriteria({field: 'location_categories_regex', ele: '#location-criteria input:checkbox', type: 'like'});
 
   /*
    * Add multiple criterial.
