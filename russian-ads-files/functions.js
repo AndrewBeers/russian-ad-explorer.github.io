@@ -112,22 +112,24 @@ function getContentByIndex(page_id, key){
 
   for(i = 0; i < ad_values_length; i++) {
     data_point = needle[0][ad_values[i]]
-    if (data_point === null) {
-      data_point = '[Unavailable]'
-    }
-    if(number_values.includes(ad_values[i])){
+    if (data_point != null) {
+      if(number_values.includes(ad_values[i])){
 
-    $("#primary-details").children().children('#' + ad_values[i]).text(number_formatter.format(data_point));
-}
-    else if(ad_values[i] == 'ad_spend_usd') {
-    $("#primary-details").children().children('#' + ad_values[i]).text(usd_formatter.format(data_point));
-    }
-    else if(ad_values[i] == 'ad_spend_rub'){
-    $("#primary-details").children().children('#' + ad_values[i]).text(rub_formatter.format(data_point)); 
+        $("#primary-details").children().children('#' + ad_values[i]).text(number_formatter.format(data_point));
+      }
+      else if(ad_values[i] == 'ad_spend_usd') {
+        $("#primary-details").children().children('#' + ad_values[i]).text(usd_formatter.format(data_point));
+      }
+      else if(ad_values[i] == 'ad_spend_rub'){
+        $("#primary-details").children().children('#' + ad_values[i]).text(rub_formatter.format(data_point)); 
+      }
+      else {
+        $("#primary-details").children().children('#' + ad_values[i]).text(data_point);
+      }
     }
     else {
-    $("#primary-details").children().children('#' + ad_values[i]).text(data_point);
-  }
+      $("#primary-details").children().children('#' + ad_values[i]).text('[Unavailable]');
+    }
   }
 
   // for(i = 0; i < number_values.length; i++) {
