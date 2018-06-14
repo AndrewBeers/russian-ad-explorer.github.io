@@ -68,9 +68,12 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
   <div class="container-fluid title-container">
     <div class="jumbotron" style="margin-bottom: 10px">
       <h1>The Russian Ad Explorer</h1> 
-      <p>Explore ads purchased by the Internet Research Agency (IRA) on Facebook and Instagram for American audiences. Learn more about the project and download the dataset that powers this explorer <a href="{{ site.baseurl }}/about">here</a>.
+      <p>Explore ads purchased by the Internet Research Agency (IRA) on Facebook and Instagram for American audiences.
         <br /><br />
-      Note: text and images are automatically scraped from PDF documents, and may contain errors or missing images. Ads may be partially redacted or blacked out.</p> 
+      Note that text and images are automatically scraped from PDF documents, and may contain errors or missing images. Ads may be partially redacted or blacked out.
+      <br /><br />
+      <a href="{{ site.baseurl }}/about">Learn more about the project, and download the datasets that powers this explorer, here. <span class="glyphicon glyphicon-share-alt"></span></a>
+    </p>
     </div>
   </div>
 
@@ -95,7 +98,7 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
 
     <div id="primary-details" class="col-sm-6">
 
-      <div class="row" style="display: inline">
+      <div class="row dont-break-out" style="display: inline">
         <strong>Ad Creation Date:</strong> <span id="ad_creation_date"></span><br />
         <strong>Ad End Date:</strong> <span id="ad_end_date"></span><br />
         <strong>Ad Text:</strong> <span id="ad_copy"></span><br />
@@ -135,7 +138,7 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
 
   <div class="container-fluid" style="margin-top: 20px; margin-bottom: 40px; height: 85px">
     <div class="searchbar col-md-12">
-      <legend style="font-size: 32px">Browse Ads</legend>
+      <legend style="font-size: 32px">Browse Ads <span class="glyphicon glyphicon-arrow-down"></span></legend>
       <label class="sr-only" for="searchbox">Search</label>
       <input type="text" class="form-control" id="searchbox" style="font-size: 24px; height: 36px" placeholder="Search Ad Text … (e.g. 'refugee', 'police', 'bernie', 'LGBT', 'gun')">
     </div>

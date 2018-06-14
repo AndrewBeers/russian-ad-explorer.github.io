@@ -1,6 +1,8 @@
 ---
 ---
 
+// I'm sorry this Javascript looks so confusing and out of order -- amateurs need to practice too.
+
 // Static Variables
 
 var ad_values = ['ad_id', 'ad_copy','ad_landing_page', 'ad_targeting_location', 'age', 'language', 'placements', 'ad_impressions',  'ad_clicks', 'ad_spend_usd', 'ad_spend_rub', 'ad_creation_date', 'ad_end_date', 'interest_expansion', 'date_order_index', 'efficiency_impressions', 'efficiency_clicks', 'conversion_rate'];
