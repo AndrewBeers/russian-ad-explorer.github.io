@@ -44,10 +44,10 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
   <script src="{{ site.baseurl }}/russian-ads-files/functions.js" type="text/javascript"></script>
   <script src="{{ site.baseurl }}/russian-ads-files/filter_modified.min.js" type="text/javascript"></script>
   <script src="{{ site.baseurl }}/russian-ads-files/index.js" type="text/javascript"></script>
-  <!-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> -->
-  <!-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> -->
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
-  <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href="{{ site.baseurl }}/russian-ads-files/stream.css" media="screen" rel="stylesheet" type="text/css">
@@ -66,14 +66,14 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
 
 
   <div class="container-fluid title-container">
-    <div class="jumbotron" style="margin-bottom: 10px">
+    <div class="jumbotron" style="margin-bottom: 10px; padding-bottom: 30px">
       <h1>The Russian Ad Explorer</h1> 
       <p>Explore ads purchased by the Internet Research Agency (IRA) on Facebook and Instagram for American audiences.
         <br /><br />
-      Note that text and images are automatically scraped from PDF documents, and may contain errors or missing images. Ads may be partially redacted or blacked out. Some ads do not contain images.
-      <br /><br />
-      <a href="{{ site.baseurl }}/about">Learn more about the project, and download the datasets that powers this explorer, here. <span class="glyphicon glyphicon-share-alt"></span></a>
-    </p>
+        Note that text and images are automatically scraped from PDF documents, and may contain errors or missing images. Ads may be partially redacted or blacked out. Some ads do not contain images.
+        <br /><br />
+        <a href="{{ site.baseurl }}/about">Learn more about the project, and download the datasets that powers this explorer, here. <span class="glyphicon glyphicon-share-alt"></span></a>
+      </p>
     </div>
   </div>
 
@@ -172,211 +172,369 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
           </div> -->
 
           <div class="container-fluid">
-
             <div class="col-sm-4 filter-row">
-              <legend>Sort By..</legend>
-              <div id="radios" class="btn-group" data-toggle="buttons" style='display: inline-block;'>
-                <label class="btn btn-default sort-btn">
-                  <input type="radio" class="sort-button" value="ad_creation_date"/> Creation Date
-                </label>
-                <label class="btn btn-default sort-btn click-btn">
-                  <input type="radio" class="sort-button" value="ad_clicks" /> Clicks
-                </label>
-                <label class="btn btn-default sort-btn">
-                  <input type="radio" class="sort-button" value="ad_impressions" /> Impressions
-                </label>
-                <label class="btn btn-default sort-btn">
-                  <input type="radio" class="sort-button" value="ad_spend_usd" /> Cost
-                </label>
-                <label class="btn btn-default sort-btn">
-                  <input type="radio" class="sort-button" value="efficiency_clicks" /> Cost Efficiency (Clicks)
-                </label>
-                <label class="btn btn-default sort-btn" value="efficiency_impressions">
-                  <input type="radio" class="sort-button" value="efficiency_impressions" /> Cost Efficiency (Impressions)
-                </label>
-                <label class="btn btn-default sort-btn" value="conversion_rate">
-                  <input type="radio" class="sort-button" value="conversion_rate" /> Click Conversion Rate
-                </label>
+
+              <div class="card mb-0 panel panel-primary panel-drilldown">
+                <div class="card-header panel-heading collapsed" data-toggle="collapse" href="#collapseSort" aria-expanded="true">
+
+                  <span class="drilldown-header">Sort By..</span>
+                </div>
+                <div id="collapseSort" class="card-body collapse panel-body" data-parent="#accordion" >
+                  <div id="radios" class="btn-group" data-toggle="buttons" style='display: inline-block;'>
+                    <label class="btn btn-default sort-btn">
+                      <input type="radio" class="sort-button" value="ad_creation_date"/> Creation Date
+                    </label>
+                    <label class="btn btn-default sort-btn click-btn">
+                      <input type="radio" class="sort-button" value="ad_clicks" /> Clicks
+                    </label>
+                    <label class="btn btn-default sort-btn">
+                      <input type="radio" class="sort-button" value="ad_impressions" /> Impressions
+                    </label>
+                    <label class="btn btn-default sort-btn">
+                      <input type="radio" class="sort-button" value="ad_spend_usd" /> Cost
+                    </label>
+                    <label class="btn btn-default sort-btn">
+                      <input type="radio" class="sort-button" value="efficiency_clicks" /> Cost Efficiency (Clicks)
+                    </label>
+                    <label class="btn btn-default sort-btn" value="efficiency_impressions">
+                      <input type="radio" class="sort-button" value="efficiency_impressions" /> Cost Efficiency (Impressions)
+                    </label>
+                    <label class="btn btn-default sort-btn" value="conversion_rate">
+                      <input type="radio" class="sort-button" value="conversion_rate" /> Click Conversion Rate
+                    </label>
+                  </div>
+                </div>
               </div>
+
             </div>
 
             <div class="col-sm-4 filter-row">
 
-              <legend>Ad Creation Date</legend>
-              <!-- <div class="btn-group" data-toggle="buttons"> -->
-                <fieldset id="year-criteria">
-                  <div class="checkbox-inline">
-                    <label class="btn btn-success btn-date">
-                      <input type="checkbox" autocomplete="off" value="2015"><span>2015</span>
-                    </label>
-                  </div>
-                  <div class="checkbox-inline">
-                    <label class="btn btn-success btn-date">
-                      <input type="checkbox" autocomplete="off" value="2016"><span>2016</span>
-                    </label>
-                  </div>
-                  <div class="checkbox-inline">
-                    <label class="btn btn-success btn-date">
-                      <input type="checkbox" autocomplete="off" value="2017"><span>2017</span>
-                    </label>
-                  </div>
-                </fieldset>
-                <!-- </div> -->
+              <div class="card mb-0 panel panel-primary panel-drilldown">
+                <div class="card-header panel-heading collapsed" data-toggle="collapse" href="#collapseDate" aria-expanded="true">
 
-                <br />
-
-                <!-- <div class="btn-group" data-toggle="buttons"> -->
-                  <fieldset id="month-criteria">
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="01"><span>Jan</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="02"><span>Feb</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="03"><span>Mar</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="04"><span>Apr</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="05"><span>May</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="06"><span>Jun</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="07"><span>Jul</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="08"><span>Aug</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="09"><span>Sep</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="10"><span>Oct</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="11"><span>Nov</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-date">
-                        <input type="checkbox" autocomplete="off" value="12"><span>Dec</span>
-                      </label>
-                    </div>
-                  </fieldset>
-                  <br />
-                  <legend>Language</legend>
-
-                  <fieldset id="language-criteria">
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-language">
-                        <input type="checkbox" autocomplete="off" value="English"><span>English</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-language">
-                        <input type="checkbox" autocomplete="off" value="Spanish"><span>Spanish</span>
-                      </label>
-                    </div>
-                    <div class="checkbox-inline">
-                      <label class="btn btn-primary btn-language">
-                        <input type="checkbox" autocomplete="off" value="Arabic"><span>Arabic</span>
-                      </label>
-                    </div>
-                  </fieldset>
-
+                  <span class="drilldown-header">Ad Creation Date</span>
                 </div>
-
-                <div class="col-sm-4 filter-row">
-
-                  <legend>Placements</legend>
+                <div id="collapseDate" class="card-body collapse panel-body" data-parent="#accordion">
 
                   <!-- <div class="btn-group" data-toggle="buttons"> -->
-                    <fieldset id="placement-criteria">
+                    <fieldset id="year-criteria">
                       <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-placement">
-                          <input type="checkbox" autocomplete="off" value="Facebook"><span>Facebook</span>
+                        <label class="btn btn-success btn-date">
+                          <input type="checkbox" autocomplete="off" value="2015"><span>2015</span>
                         </label>
                       </div>
                       <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-placement">
-                          <input type="checkbox" autocomplete="off" value="Instagram"><span>Instagram</span>
+                        <label class="btn btn-success btn-date">
+                          <input type="checkbox" autocomplete="off" value="2016"><span>2016</span>
                         </label>
                       </div>
                       <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-placement">
-                          <input type="checkbox" autocomplete="off" value="Third Party Apps"><span>Third Party Apps</span>
-                        </label>
-                      </div>
-                      <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-placement">
-                          <input type="checkbox" autocomplete="off" value="Video"><span>Video</span>
+                        <label class="btn btn-success btn-date">
+                          <input type="checkbox" autocomplete="off" value="2017"><span>2017</span>
                         </label>
                       </div>
                     </fieldset>
 
                     <br />
 
-                    <legend>Targeting Location</legend>
+                    <fieldset id="month-criteria">
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="01"><span>Jan</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="02"><span>Feb</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="03"><span>Mar</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="04"><span>Apr</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="05"><span>May</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="06"><span>Jun</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="07"><span>Jul</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="08"><span>Aug</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="09"><span>Sep</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="10"><span>Oct</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="11"><span>Nov</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-primary btn-date">
+                          <input type="checkbox" autocomplete="off" value="12"><span>Dec</span>
+                        </label>
+                      </div>
+                    </fieldset>
+                    <br />
 
-                    <fieldset id="location-criteria">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 filter-row">
+
+                <div class="card mb-0 panel panel-primary panel-drilldown">
+                  <div class="card-header panel-heading collapsed" data-toggle="collapse" href="#collapseLanguage" aria-expanded="true">
+
+                    <span class="drilldown-header">Ad Language</span>
+                  </div>
+                  <div id="collapseLanguage" class="card-body collapse panel-body" data-parent="#accordion">
+
+                    <fieldset id="language-criteria">
                       <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-location">
-                          <input type="checkbox" autocomplete="off" value="Southwest"><span>Southwest</span>
+                        <label class="btn btn-primary btn-language">
+                          <input type="checkbox" autocomplete="off" value="English"><span>English</span>
                         </label>
                       </div>
                       <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-location">
-                          <input type="checkbox" autocomplete="off" value="Midwest"><span>Midwest / West</span>
+                        <label class="btn btn-primary btn-language">
+                          <input type="checkbox" autocomplete="off" value="Spanish"><span>Spanish</span>
                         </label>
                       </div>
                       <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-location">
-                          <input type="checkbox" autocomplete="off" value="Pacific"><span>Pacific</span>
+                        <label class="btn btn-primary btn-language">
+                          <input type="checkbox" autocomplete="off" value="Arabic"><span>Arabic</span>
+                        </label>
+                      </div>
+                    </fieldset>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid">
+
+              <div class="col-sm-6 filter-row">
+
+                <div class="card mb-0 panel panel-primary panel-drilldown">
+                  <div class="card-header panel-heading collapsed" data-toggle="collapse" href="#collapsePlacement" aria-expanded="true">
+
+                    <span class="drilldown-header">Ad Placement</span>
+                  </div>
+                  <div id="collapsePlacement" class="card-body collapse panel-body" data-parent="#accordion">
+
+                    <!-- <div class="btn-group" data-toggle="buttons"> -->
+                      <fieldset id="placement-criteria">
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-placement">
+                            <input type="checkbox" autocomplete="off" value="Facebook"><span>Facebook</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-placement">
+                            <input type="checkbox" autocomplete="off" value="Instagram"><span>Instagram</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-placement">
+                            <input type="checkbox" autocomplete="off" value="Third Party Apps"><span>Third Party Apps</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-placement">
+                            <input type="checkbox" autocomplete="off" value="Video"><span>Video</span>
+                          </label>
+                        </div>
+                      </fieldset>
+
+                      <br />
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 filter-row">
+
+                  <div class="card mb-0 panel panel-primary panel-drilldown">
+                    <div class="card-header panel-heading collapsed" data-toggle="collapse" href="#collapseLocation" aria-expanded="true">
+
+                      <span class="drilldown-header">Targeting Location</span>
+                    </div>
+                    <div id="collapseLocation" class="card-body collapse panel-body" data-parent="#accordion">
+
+                      <fieldset id="location-criteria">
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-location">
+                            <input type="checkbox" autocomplete="off" value="Southwest"><span>Southwest</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-location">
+                            <input type="checkbox" autocomplete="off" value="Midwest"><span>Midwest / West</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-location">
+                            <input type="checkbox" autocomplete="off" value="Pacific"><span>Pacific</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-location">
+                            <input type="checkbox" autocomplete="off" value="Northeast"><span>Northeast</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-location">
+                            <input type="checkbox" autocomplete="off" value="Atlantic"><span>Alantic</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-location">
+                            <input type="checkbox" autocomplete="off" value="The South"><span>The South</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-inline">
+                          <label class="btn btn-primary btn-location">
+                            <input type="checkbox" autocomplete="off" value="Non-US"><span>Non-US</span>
+                          </label>
+                        </div>
+                      </fieldset>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="container-fluid">
+                <div class="col-sm-12 filter-row">
+
+                  <legend>Interest Categories</legend>
+
+                  <!-- <div class="btn-group" data-toggle="buttons"> -->
+                    <fieldset id="interest-criteria">
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Progressive"><span>Progressive</span>
                         </label>
                       </div>
                       <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-location">
-                          <input type="checkbox" autocomplete="off" value="Northeast"><span>Northeast</span>
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Conservative"><span>Conservative</span>
                         </label>
                       </div>
                       <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-location">
-                          <input type="checkbox" autocomplete="off" value="Atlantic"><span>Alantic</span>
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="African American"><span>African American</span>
                         </label>
                       </div>
                       <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-location">
-                          <input type="checkbox" autocomplete="off" value="The South"><span>The South</span>
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Latinx"><span>Latinx</span>
                         </label>
                       </div>
                       <div class="checkbox-inline">
-                        <label class="btn btn-primary btn-location">
-                          <input type="checkbox" autocomplete="off" value="Non-US"><span>Non-US</span>
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Native American"><span>Native American</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="LGBTQ"><span>LGBTQ</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Islam"><span>Islam</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Christianity"><span>Christianity</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Army"><span>Army / Veterans</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Police"><span>Police</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Prison"><span>Incarcerated</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="American South"><span>The South / Confederate</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Texas"><span>Texas</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Anti-Immigrant"><span>Anti-Immigration</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Gun Rights"><span>Gun Rights</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Patriotism"><span>Patriotism</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Memes and Products"><span>Memes and Products</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Self-Defense"><span>Self Defense</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Below Age 30"><span>Below Age 30 Only</span>
+                        </label>
+                      </div>
+                      <div class="checkbox-inline">
+                        <label class="btn btn-info btn-interest">
+                          <input type="checkbox" autocomplete="off" value="Above Age 30"><span>Age 30+ Only</span>
                         </label>
                       </div>
                     </fieldset>
@@ -384,180 +542,72 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
                   </div>
 
                   <div class="col-sm-12 filter-row">
-
-                    <legend>Interest Categories</legend>
-
-                    <!-- <div class="btn-group" data-toggle="buttons"> -->
-                      <fieldset id="interest-criteria">
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Progressive"><span>Progressive</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Conservative"><span>Conservative</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="African American"><span>African American</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Latinx"><span>Latinx</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Native American"><span>Native American</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="LGBTQ"><span>LGBTQ</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Islam"><span>Islam</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Christianity"><span>Christianity</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Army"><span>Army / Veterans</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Police"><span>Police</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Prison"><span>Incarcerated</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="American South"><span>The South / Confederate</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Texas"><span>Texas</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Anti-Immigrant"><span>Anti-Immigration</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Gun Rights"><span>Gun Rights</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Patriotism"><span>Patriotism</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Memes and Products"><span>Memes and Products</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Self-Defense"><span>Self Defense</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Below Age 30"><span>Below Age 30 Only</span>
-                          </label>
-                        </div>
-                        <div class="checkbox-inline">
-                          <label class="btn btn-info btn-interest">
-                            <input type="checkbox" autocomplete="off" value="Above Age 30"><span>Age 30+ Only</span>
-                          </label>
-                        </div>
-                      </fieldset>
-
-                    </div>
-
-                    <div class="col-sm-12 filter-row">
-                      <em>The interest categories and targeting locations provided here are not generated by Facebook. They are aggregate labels created solely for this explorer. Read more in the <a href="{{ site.baseurl }}/about">about</a> section.</em>
-                    </div>
-
+                    <em>The interest categories and targeting locations provided here are not generated by Facebook. They are aggregate labels created solely for this explorer. Read more in the <a href="{{ site.baseurl }}/about">about</a> section.</em>
                   </div>
+
+
                 </div>
-
               </div>
+            </div>
 
-              <div class="container-fluid">
-                <div class="col-sm-12">
-                  <div class="row">
-                    <div class="content col-sm-12">
-                      <div id="pagination" class="russian-ads-pagination col-sm-9"></div>
-                      <div class="col-sm-6 content">
-                        <span id="per_page" class="content"></span>
-                      </div>
-                    </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="content col-sm-12">
+                  <div id="pagination" class="russian-ads-pagination col-sm-9"></div>
+                  <div class="col-sm-6 content">
+                    <span id="per_page" class="content"></span>
                   </div>
-
-                  <div class="russian-ads row" id="russian-ads"> </div>
                 </div>
               </div>
 
+              <div class="russian-ads row" id="russian-ads"> </div>
+            </div>
+          </div>
 
-              <script id="russian-ad-template" type="text/html">
-                <div class="col-sm-4">
-                  <div class="thumbnail">
-                    <span class="label label-success click"><span class='ad_clicks_label thumbnail-tag'><span class="thumbnail-data"><%= ad_clicks %></span> Clicks</span><span class='ad_spend_usd_label thumbnail-tag hidden'><span class="thumbnail-usd"><%= ad_spend_usd %></span></span><span class=".ad_impressions_label thumbnail-tag hidden"><span class="thumbnail-data"><%= ad_impressions %></span> Impressions</span><span class="efficiency_clicks_label thumbnail-tag hidden"><span class="thumbnail-data"><%= efficiency_clicks %></span> Clicks / $</span><span class="efficiency_impressions_label thumbnail-tag hidden"><span class="thumbnail-data"><%= efficiency_impressions %></span> Impressions / $</span><span class="ad_impressions_label thumbnail-tag hidden"><span class="thumbnail-data"><%= ad_impressions %></span> Impressions</span><span class="conversion_rate_label thumbnail-tag hidden"><span class="thumbnail-data"><%= conversion_rate %></span> Clicks / Impression</span></span>
-                    <div class="caption"><img src="https://github.com/russian-ad-explorer/russian-ad-datasets/raw/master/thumbnails/<%= image_filepath %>"" alt=""/>
-                      <h4><%= month %>/<%= day %>/<%= year %></h4>
-                      <div class="detail">
-                        <span class="image_filepath" style="display:none"><%= image_filepath %></span>
-                        <strong>Ad Cost</strong><br />
-                        <span class="ad_spend_usd"><%= ad_spend_usd %></span><br />
-                        <strong>Text</strong><br />
-                        <span class="ad_copy"><%= ad_copy %></span><br />
-                        <strong>Impressions</strong>
-                        <span class="ad_impressions"><%= ad_impressions %></span><br />
-                        <strong>Clicks</strong>
-                        <span class="ad_clicks"><%= ad_clicks %></span><br />
-                        <strong>Landing Page</strong>
-                        <span class="ad_landing_page"><%= ad_landing_page %></span><br />
-                        <strong>Targeting Location</strong>
-                        <span class="ad_targeting_location"><%= ad_targeting_location %></span><br />
-                        <strong>Interests</strong>
-                        <span class="interest_expansion"><%= interest_expansion %></span><br />
-                        <atrong>Age</atrong>
-                        <span class="age"><%= age %></span><br />
-                        <strong>Ad Placements</strong>
-                        <span class="placements"><%= placements %></span><br/>
-                        <strong>Ad Language</strong>
-                        <span class="language"><%= language %></span><br />
-                        <strong>Ad Creation Date</strong>
-                        <span class="ad_creation_date"><%= ad_creation_date %></span><br />
-                        <strong>Ad End Date</strong>
-                        <span class="ad_end_date"><%= ad_end_date %></span><br />
-                        <span class="ad_id"><%= ad_id %></span><br />
-                        <span class="pdf_filepath"><%= pdf_filepath %></span>
-                        <span class="date_order_index" style="display: none"><%= date_order_index %></span>
-                      </div>
-                    </div>
+
+          <script id="russian-ad-template" type="text/html">
+            <div class="col-sm-4">
+              <div class="thumbnail">
+                <span class="label label-success click"><span class='ad_clicks_label thumbnail-tag'><span class="thumbnail-data"><%= ad_clicks %></span> Clicks</span><span class='ad_spend_usd_label thumbnail-tag hidden'><span class="thumbnail-usd"><%= ad_spend_usd %></span></span><span class=".ad_impressions_label thumbnail-tag hidden"><span class="thumbnail-data"><%= ad_impressions %></span> Impressions</span><span class="efficiency_clicks_label thumbnail-tag hidden"><span class="thumbnail-data"><%= efficiency_clicks %></span> Clicks / $</span><span class="efficiency_impressions_label thumbnail-tag hidden"><span class="thumbnail-data"><%= efficiency_impressions %></span> Impressions / $</span><span class="ad_impressions_label thumbnail-tag hidden"><span class="thumbnail-data"><%= ad_impressions %></span> Impressions</span><span class="conversion_rate_label thumbnail-tag hidden"><span class="thumbnail-data"><%= conversion_rate %></span> Clicks / Impression</span></span>
+                <div class="caption"><img src="https://github.com/russian-ad-explorer/russian-ad-datasets/raw/master/thumbnails/<%= image_filepath %>"" alt=""/>
+                  <h4><%= month %>/<%= day %>/<%= year %></h4>
+                  <div class="detail">
+                    <span class="image_filepath" style="display:none"><%= image_filepath %></span>
+                    <strong>Ad Cost</strong><br />
+                    <span class="ad_spend_usd"><%= ad_spend_usd %></span><br />
+                    <strong>Text</strong><br />
+                    <span class="ad_copy"><%= ad_copy %></span><br />
+                    <strong>Impressions</strong>
+                    <span class="ad_impressions"><%= ad_impressions %></span><br />
+                    <strong>Clicks</strong>
+                    <span class="ad_clicks"><%= ad_clicks %></span><br />
+                    <strong>Landing Page</strong>
+                    <span class="ad_landing_page"><%= ad_landing_page %></span><br />
+                    <strong>Targeting Location</strong>
+                    <span class="ad_targeting_location"><%= ad_targeting_location %></span><br />
+                    <strong>Interests</strong>
+                    <span class="interest_expansion"><%= interest_expansion %></span><br />
+                    <atrong>Age</atrong>
+                    <span class="age"><%= age %></span><br />
+                    <strong>Ad Placements</strong>
+                    <span class="placements"><%= placements %></span><br/>
+                    <strong>Ad Language</strong>
+                    <span class="language"><%= language %></span><br />
+                    <strong>Ad Creation Date</strong>
+                    <span class="ad_creation_date"><%= ad_creation_date %></span><br />
+                    <strong>Ad End Date</strong>
+                    <span class="ad_end_date"><%= ad_end_date %></span><br />
+                    <span class="ad_id"><%= ad_id %></span><br />
+                    <span class="pdf_filepath"><%= pdf_filepath %></span>
+                    <span class="date_order_index" style="display: none"><%= date_order_index %></span>
                   </div>
                 </div>
-              </script>
+              </div>
+            </div>
+          </script>
 
-            </body>
-            </html>
+        </body>
+        </html>

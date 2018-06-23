@@ -92,13 +92,13 @@ input:checkbox {
   font-size: 17px;
 }
 
-.accordion .card-header:after {
+.card-header:after {
     font-family: 'FontAwesome';  
     content: "\f068";
     float: right;
     text-align: center; 
 }
-.accordion .card-header.collapsed:after {
+.card-header.collapsed:after {
     /* symbol for "collapsed" panels */
     content: "\f067"; 
 }
@@ -459,4 +459,12 @@ legend {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 0 40px rgba(0, 0, 0, 0.06) inset;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 0 40px rgba(0, 0, 0, 0.06) inset;
   -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+}
+
+.panel-drilldown {
+  margin-bottom: 0px;
+}
+
+.drilldown-header {
+  font-size: 22px;
 }

@@ -153,13 +153,6 @@ function getContentByIndex(page_id, key){
 
   $("#facebook-button").attr('href', 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURI(window.location.href) + '&title=' + encodeURI('The Russian Ad Explorer'));
 
-  $('meta[property="og:image"]').remove();
-  $('meta[property="og:description"]').remove();
-  $('meta[property="og:url"]').remove();
-  $("head").append('<meta property="og:image" content="' + 'https://github.com/russian-ad-explorer/russian-ad-datasets/raw/master/images/' + needle[0].image_filepath + '">');
-  $("head").append('<meta property="og:description" content="' + needle[0]['ad_copy'].substring(0, 100) + '...">');
-  $("head").append('<meta property="og:url" content="' + window.location.href + '">');
-
   history.replaceState('', 'Russian Ad Explorer', '?ad_id=' + needle[0]['date_order_index'])
 
   var next_needle = grabNeedle(key, page_id + 1)
