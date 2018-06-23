@@ -136,7 +136,8 @@ input:checkbox {
 }
 
 .container-fluid {
-  max-width: 1000px
+  max-width: 1000px;
+  min-width: 680px;
 }
 
 .sidebar{
