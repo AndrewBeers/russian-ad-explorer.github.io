@@ -30,18 +30,24 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
   <meta charset="utf-8" />
   <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <meta name="viewport" content="width=680px">
+  <meta name="viewport" content="width=680">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <meta name="robots" content="index,follow" />
   <meta name="googlebot" content="noodp">
 
+  <!-- File Saver -->
+  <script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
+  <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+
+  <!-- Math (for exp10) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.1/math.js"></script>
 
   <!-- d3.js -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script> -->
   <!-- <script src="http://d3js.org/topojson.v1.min.js"></script> -->
 
-  <!-- Site rsources -->
+  <!-- Site resources -->
   <link href="{{ site.baseurl }}/russian-ads-files/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
   <link href="{{ site.baseurl }}/russian-ads-files/jquery-ui-1.10.2.custom.min.css" media="screen" rel="stylesheet" type="text/css">
   <script src="{{ site.baseurl }}/russian-ads-files/jquery-1.11.3.min.js" type="text/javascript"></script>
@@ -57,6 +63,7 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
 
   <!-- Boostrap TODO: Resolve duplications -->
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href="{{ site.baseurl }}/russian-ads-files/stream.css" media="screen" rel="stylesheet" type="text/css">
 
@@ -130,7 +137,8 @@ blurb: "A data explorer for the 2500+ ads bought by the Russian Internet Researc
   </div>
 
   <div class="container-fluid">
-  <div class="col-md-4" id="visualization-details"></div>
+  <div class="col-md-4" id="visualization-details">
+  </div>
   <div class="tab-content" id="plotTabContent">
     <div class="tab-pane show active" id="scatter" role="tabpanel" aria-labelledby="scatter-tab">
       <div class="container-fluid">

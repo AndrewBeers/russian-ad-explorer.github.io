@@ -27,6 +27,18 @@ input:checkbox {
   display: none !important;
 }
 
+.big-text {
+  font-size: 18px;
+}
+
+.btn {
+  font-size: 18px;
+}
+
+.nav-link {
+  font-size: 18px;
+}
+
 .dont-break-out {
 
   /* These are technically the same, but use both */
