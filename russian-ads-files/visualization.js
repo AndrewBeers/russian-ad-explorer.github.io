@@ -1,4 +1,4 @@
-
+var
 data = russian_ads
 
 var superscript = "⁰¹²³⁴⁵⁶⁷⁸⁹",
@@ -14,20 +14,36 @@ var margin = {top: 30, right: 30, bottom: 30, left: 70},
 var data_dict = {"Ad Impressions": "ad_impressions",
                     "Ad Clicks": "ad_clicks",
                     "Ad Cost ($USD)": "ad_spend_usd",
-                    "Ad Conversion Rate": 'conversation_rate',
-                    "Ad Efficiency (Clicks)": 'efficiency_clicks',
-                    "Ad Efficiency (Impressions": 'efficiency_impressions'}
+                    "Ad Conversion Rate": 'conversion_rate',
+                    "Clicks Per Dollar": 'efficiency_clicks',
+                    "Impressions Per Dollar": 'efficiency_impressions'}
 
-console.log(Object.entries(data_dict))
-var selectData = Object.entries(data_dict).map(x => {x[0]: 'text'});
-console.log(selectData)
+var category_dict = {
+"Progressive": "Progressive",
+"Conservative": "Conservative",
+"African American": "African American",
+"Latinx": "Latinx",
+"Native American": "Native American",
+"LGBTQ": "LGBTQ",
+"Islam": "Islam",
+"Christianity": "Christianity",
+"Army / Veterans": "Army",
+"Police": "Police",
+"Incarcerated": "Prison",
+"The South / Confederate": "American South",
+"Texas": "Texas",
+"Anti-Immigration": "Anti-Immigration",
+"Gun Rights": "Gun Rights",
+"Patriotism": "Patriotism",
+"Memes and Products": "Memes and Products",
+"Self Defense": "Self Defense",
+"Below Age 30 Only": "Below Age 30",
+"Age 30+ Only": "Above Age 30",
+}
 
-var selectData = [ { "text" : "Ad Impressions" },
-                 { "text" : "Ad Clicks" },
-                 { "text" : "Ad Cost ($USD)"},
-                 { "text" : 'Ad Conversion Rate'}
-               ]
-console.log(selectData)
+// black magic in these lines
+var selectData = Object.entries(data_dict).map(x => ({"text": x[0]}));
+var categoryData = Object.entries(category_dict).map(x => ({"text": x[0]}));
 
 var viz_container = d3.select("#visualization-container")
 var viz_details = d3.select("#visualization-details")
@@ -45,7 +61,8 @@ function getDomain(data_tag, scale_type="linear"){
         return [0, d3.max(data, function (d) { return d[data_tag] })]
     }
     if (scale_type == 'log'){
-        return [1, 10 ** Math.ceil(Math.log10(d3.max(data,function (d) { return d[data_tag] })))]
+        console.log([.01, 10 ** Math.ceil(Math.log10(d3.max(data,function (d) { return d[data_tag] })))])
+        return [.01, 10 ** Math.ceil(Math.log10(d3.max(data,function (d) { return d[data_tag] })))]
     }
 }
 
@@ -75,7 +92,7 @@ function applyScale(data_type, scale_type="linear", position="x", format="$", ti
     } 
     else if (scale_type == 'log'){
         chart_scale = d3.scaleLog().base(10).range(scale_range).domain(getDomain(data_tag, 'log'))
-        scale_map = function(d) {return chart_scale(chart_value(d) + 1)}
+        scale_map = function(d) {return chart_scale(chart_value(d) + .01)}
     }
 
     if (position == 'x'){
@@ -105,34 +122,6 @@ function applyScale(data_type, scale_type="linear", position="x", format="$", ti
 
     return [chart_axis, scale_map, chart_scale, chart_value]
 }
-
-// console.log(xValue(d)); console.log(Math.log10(xValue(d) + 1)
-
-// setup x 
-// var xValue = function(d) { return d.ad_clicks;}, // data -> value
-//     // xScale = d3.scaleLinear().range([0, width]), // value -> display
-//     xScale= d3.scaleLog().base(10).range([0, width]),
-//     xMap = function(d) {return xScale(xValue(d) + 1);}, // data -> display
-//     // xAxis = d3.axisBottom(xScale).tickFormat(function(d) { return "10" + formatPower(Math.round(Math.log10(d))); });
-//     xAxis = d3.axisBottom(xScale).tickFormat(d3.format(',')).ticks(Math.floor(Math.log10(d3.max(data, xValue))));
-//     // tickFormat(function(d) { return "10" + formatPower(Math.round(Math.log10(d))); })
-//     // xAxis.tickFormat(function(d) { return d });
-//     xTitle = "Ad Clicks"
-
-// // setup y
-// var yValue = function(d) { return d.ad_spend_usd;}, // data -> value
-//     yScale = d3.scaleLinear().range([height, 0]), // value -> display
-//     yScale = d3.scaleLog().base(10).range([height, 0]), // value -> display
-//     // yMap = function(d) { return yScale(yValue(d));}, // data -> display
-//     yMap = function(d) {return yScale(yValue(d) + 1);}
-//     yAxis = d3.axisLeft(yScale).tickFormat(function(d) { return "$" + d3.format(",.2f")(d);}).ticks(3)
-//     // ticks(Math.ceil(Math.log10(d3.max(data, yValue))));
-//     // .tickFormat(d3.format(","))
-//     yTitle = "Ad Cost ($USD)"
-
-    // console.log(Math.ceil(Math.log10(d3.max(data, yValue))))
-
-
 
   // don't want dots overlapping axis, so add in buffer to data domain
   // xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
@@ -227,7 +216,7 @@ for (len = axisPositions.length, i=0; i<len; ++i) {
         .data(selectData)
         .enter()
         .append('div')
-        .attr('class', 'dropdown-item')
+        .attr('class', 'dropdown-item big-text')
         // .attr('href', '#')
         .attr('value', function (d) { return d.text })
         .on('click', function (d) {changeAxis(d, position=position)})
@@ -235,6 +224,31 @@ for (len = axisPositions.length, i=0; i<len; ++i) {
         viz_details.append('br')
     })();
     }
+
+var categoryButton = viz_details.append('div')
+    .attr('class', 'dropdown');
+    categoryButton.append('button')
+    .attr('class', 'btn btn-success dropdown-toggle big-text')
+    .attr('id', 'categorySelect')
+    .attr('type', 'button')
+    .attr('data-toggle', 'dropdown')
+    .attr('aria-haspopup', 'true')
+    .attr('aria-expanded', 'false')
+    .text('Highlight Interest Category')
+    .on('toggle', console.log('trigger'));
+    categoryButtonGroup = categoryButton.append('div')
+        .attr('class', 'dropdown-menu')
+        .attr('aria-labelledby', 'dropdownMenuButton');
+    categoryButtonGroup.selectAll('a')
+    .data(categoryData)
+    .enter()
+    .append('div')
+    .attr('class', 'dropdown-item big-text')
+    // .attr('href', '#')
+    .attr('value', function (d) { return d.text })
+    .on('click', function (d) {highlightCategory(d)})
+    .text(function (d) { return d.text ;})
+    viz_details.append('br')
 
 for (len = axisPositions.length, i=0; i<len; ++i) {
     (function(){
@@ -265,6 +279,31 @@ var saveButton = viz_details.append('button')
             }
     });
 
+  function getScaleType(position='x'){
+    if (position == 'x'){
+        targetScale = xScaleLog
+    }
+    else if (position == 'y'){
+        targetScale = yScaleLog
+    }
+
+    if (targetScale){
+        return 'log'
+    }
+    else {
+        return 'linear'
+    }
+  }
+
+  function getFormat(value){
+    if (value =="Ad Cost ($USD)"){
+        return '$'
+    }
+    else{
+        return ','
+    }
+  }
+
   function changeLog(position='x') {
 
     // Quite a confusing function...
@@ -289,7 +328,7 @@ var saveButton = viz_details.append('button')
     }
 
     value = d3.select('#' + position + 'AxisLabel').text()
-    var [_Axis, _Map, _Scale, _Value] = applyScale(data_type=value, scale_type=scale_type, position=position, format=',', ticks=null)
+    var [_Axis, _Map, _Scale, _Value] = applyScale(data_type=value, scale_type=scale_type, position=position, format=getFormat(value), ticks=null)
 
     _Axis.scale(_Scale) // change the yScale
     d3.select('#' + position + 'Axis') // redraw the yAxis
@@ -306,7 +345,8 @@ var saveButton = viz_details.append('button')
   function changeAxis(element, position='x'){
     var value = element.text // get the new x value
 
-    var [_Axis, _Map, _Scale, _Value] = applyScale(data_type=value, scale_type="log", position=position, format=',', ticks=null)
+    console.log(getScaleType(position))
+    var [_Axis, _Map, _Scale, _Value] = applyScale(data_type=value, scale_type=getScaleType(position), position=position, format=getFormat(value), ticks=null)
 
     _Axis.scale(_Scale) // change the yScale
     d3.select('#' + position + 'Axis') // redraw the yAxis
@@ -333,6 +373,10 @@ var saveButton = viz_details.append('button')
       .text("IRA Russian Ad Release, " + xTitle + " vs. " + yTitle);
 
 
+  }
+
+  function highlightCategory(){
+    return
   }
 
     function isBrushed(brush_coords, cx, cy) {
