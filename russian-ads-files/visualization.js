@@ -225,30 +225,30 @@ for (len = axisPositions.length, i=0; i<len; ++i) {
     })();
     }
 
-var categoryButton = viz_details.append('div')
-    .attr('class', 'dropdown');
-    categoryButton.append('button')
-    .attr('class', 'btn btn-success dropdown-toggle big-text')
-    .attr('id', 'categorySelect')
-    .attr('type', 'button')
-    .attr('data-toggle', 'dropdown')
-    .attr('aria-haspopup', 'true')
-    .attr('aria-expanded', 'false')
-    .text('Highlight Interest Category')
-    .on('toggle', console.log('trigger'));
-    categoryButtonGroup = categoryButton.append('div')
-        .attr('class', 'dropdown-menu')
-        .attr('aria-labelledby', 'dropdownMenuButton');
-    categoryButtonGroup.selectAll('a')
-    .data(categoryData)
-    .enter()
-    .append('div')
-    .attr('class', 'dropdown-item big-text')
-    // .attr('href', '#')
-    .attr('value', function (d) { return d.text })
-    .on('click', function (d) {highlightCategory(d)})
-    .text(function (d) { return d.text ;})
-    viz_details.append('br')
+// var categoryButton = viz_details.append('div')
+//     .attr('class', 'dropdown');
+//     categoryButton.append('button')
+//     .attr('class', 'btn btn-success dropdown-toggle big-text')
+//     .attr('id', 'categorySelect')
+//     .attr('type', 'button')
+//     .attr('data-toggle', 'dropdown')
+//     .attr('aria-haspopup', 'true')
+//     .attr('aria-expanded', 'false')
+//     .text('Highlight Interest Category')
+//     .on('toggle', console.log('trigger'));
+//     categoryButtonGroup = categoryButton.append('div')
+//         .attr('class', 'dropdown-menu')
+//         .attr('aria-labelledby', 'dropdownMenuButton');
+//     categoryButtonGroup.selectAll('a')
+//     .data(categoryData)
+//     .enter()
+//     .append('div')
+//     .attr('class', 'dropdown-item big-text')
+//     // .attr('href', '#')
+//     .attr('value', function (d) { return d.text })
+//     .on('click', function (d) {highlightCategory(d)})
+//     .text(function (d) { return d.text ;})
+//     viz_details.append('br')
 
 for (len = axisPositions.length, i=0; i<len; ++i) {
     (function(){
